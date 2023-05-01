@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="page-header mt-10">
+        <div class="row align-items-center">
+            <div class="col">
+            <h3 class="page-title">Blog</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                <li class="breadcrumb-item active">blog</li>
+            </ul>
+            </div>
+            <div class="col-auto float-end ms-auto">
+            <a href="{{path('create')}}" class="btn add-btn"><i class="fa fa-plus"></i> Create</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabledata">
+                        
+                        <tr> 
+                          <th scope="row"></th>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <a href="" class=" btn btn-secondary">Edit</a>
+                            <a href="" class=" btn btn-danger">Delete</a>
+                          </td>
+                        </tr>
+                     
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-right" id="pagingdata" style="display: none;"></div>
+        </div>
+    </div>
+{% endblock %}

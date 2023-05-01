@@ -1,0 +1,22 @@
+{{ form_start(form) }}
+{{ form_errors(form) }}
+
+<div class="mb-3">
+	<label class="form-label" for="project_cost">Project Name</label>
+	{{ form_row(form.name, {'attr': {'class': 'form-control'} , label: false })  }}
+</div>
+
+
+<div class="mb-3">
+	<label class="form-label" for="project_cost">country</label>
+	{{ form_row(form.country, {'attr': {'class': 'form-control'} , label: false })  }}
+</div>
+
+<div class="mb-3 col-4">
+<label class="form-label" for="project_cost">balance</label>
+	{{ form_row(form.balance, {'attr': {'class': 'form-control'} , label: false })  }}
+</div>
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
