@@ -15,7 +15,8 @@ class TeamType extends AbstractType
             ->add('name')
             ->add('country')
             ->add('balance')
-            
+            ->add('createdAt')
+            ->add('updatedAt')
         ;
     }
 

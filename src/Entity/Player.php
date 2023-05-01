@@ -91,12 +91,12 @@ class Player
         return $this;
     }
 
-    public function getTeam(): ?team
+    public function getTeam(): ?Team
     {
         return $this->team;
     }
 
-    public function setTeam(?team $team): self
+    public function setTeam(?Team $team): self
     {
         $this->team = $team;
 

@@ -1,48 +1,43 @@
 {% extends 'base.html.twig' %}
-{% block body %}
 
-    <div class="page-header mt-10">
-        <div class="row align-items-center">
-            <div class="col">
-            <h3 class="page-title">Blog</h3>
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                <li class="breadcrumb-item active">blog</li>
-            </ul>
-            </div>
-            <div class="col-auto float-end ms-auto">
-            <a href="{{path('create')}}" class="btn add-btn"><i class="fa fa-plus"></i> Create</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <table class="table table-striped custom-table mb-0">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th class="text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabledata">
-                        
-                        <tr> 
-                          <th scope="row"></th>
-                          <td></td>
-                          <td></td>
-                          <td>
-                            <a href="" class=" btn btn-secondary">Edit</a>
-                            <a href="" class=" btn btn-danger">Delete</a>
-                          </td>
-                        </tr>
-                     
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-right" id="pagingdata" style="display: none;"></div>
-        </div>
-    </div>
+{% block title %}Team index{% endblock %}
+
+{% block body %}
+    <h1>Team index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Balance</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            <tr>
+                <td>{{ team.id }}</td>
+                <td>{{ team.name }}</td>
+                <td>{{ team.country }}</td>
+                <td>{{ team.balance }}</td>
+                <td>{{ team.createdAt ? team.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ team.updatedAt ? team.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_team_show', {'id': team.id}) }}">show</a>
+                    <a href="{{ path('app_team_edit', {'id': team.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_team_new') }}">Create new</a>
 {% endblock %}

@@ -45,7 +45,7 @@ class Team
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Player::class, mappedBy="team")
+     * @ORM\OneToMany(targetEntity=Player::class, mappedBy="Team")
      */
     private $players;
 
