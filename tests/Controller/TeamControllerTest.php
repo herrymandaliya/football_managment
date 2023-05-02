@@ -59,7 +59,7 @@ class TeamControllerTest extends WebTestCase
     public function testShow(): void
     {
         $this->markTestIncomplete();
-        $fixture = new Team();
+        $fixture = new Teamb();
         $fixture->setName('My Title');
         $fixture->setCountry('My Title');
         $fixture->setBalance('My Title');

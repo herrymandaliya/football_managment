@@ -35,7 +35,7 @@ class Player
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=team::class, inversedBy="players")
+     * @ORM\ManyToOne(targetEntity=Team::class, inversedBy="players")
      */
     private $team;
 

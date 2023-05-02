@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Player;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PlayerType extends AbstractType
@@ -14,10 +15,10 @@ class PlayerType extends AbstractType
         $builder
             ->add('firstname')
             ->add('lastname')
-            ->add('image')
-            ->add('createAt')
-            ->add('updatedAt')
-            ->add('team')
+            ->add('attachment', FileType::class, ['mapped' => false])
+            // ->add('createAt')
+            // ->add('updatedAt')
+            // ->add('team')
         ;
     }
 

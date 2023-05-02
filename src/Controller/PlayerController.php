@@ -30,6 +30,24 @@ class PlayerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+           
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $image = $request->files->get('player')['attachment'];
+
+            if($image){
+                $dateiname = md5(uniqid()) . '.' . $image->guessClientExtension();
+            }
+
+            $image->move(
+                $this->getParameter('images_folder'),
+                $dateiname
+            );
+            // print "<pre>";
+            // print_r( $player);
+            // print "</pre>";die();
+            $player->setImage($dateiname);
+
             $entityManager->persist($player);
             $entityManager->flush();
 
